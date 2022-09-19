@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body style="font-family: 'Source Sans Pro', sans-serif; font-size: 20pt;">
+        <div style="margin-bottom: 10px;">LENDINGS ({{ number_of_lendings }})</div>
+
+        <div>
+            <a style="color: green" href="/lending/add">Add a new lending</a> <a href="/">Back to index</a>
+            <table style="border: 1px solid;">
+                <tr>
+                    <th>User</th>
+                    <th>Book</th>
+                    <th>Until</th>
+                </tr>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                    <td>{{ entry[3] }}</td>
+                    <td>
+                        <a style="color: blue" href="/lending/modify/{{ entry[0] }}">Modify</a>
+                        <a style="color: red" href="/lending/delete/{{ entry[0] }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

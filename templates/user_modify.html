@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin-bottom: 10px;">MODIFY USER</div>
+
+    <form action="/user/modify/{{ user[0] }}" method="post">
+        <div>Title: <input autofocus name="name" value="{{ user[1] }}"></div>
+
+        <input type="submit" value="Save">
+    </form>
+    
+</body>
+</html>

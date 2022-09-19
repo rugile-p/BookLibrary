@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>GAMES ({{numberOfGames}})</div>
+
+    <div>
+        <a style="color: green;" href="/game/add">Add a new game</a>
+        <table style="border: 1px solid;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Command</th>
+            </tr>
+            {% for game in games %}
+            <tr>
+                <td>{{ game[0] }}</td>
+                <td>{{ game[1] }}</td>
+                <td>
+                    <a style="color:  blue;" href="/game/modify/{{ game[0] }}">Modify</a>
+                    <a style="color:  red;" href="/game/delete/{{ game[0] }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+
+</html>

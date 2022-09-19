@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="margin-bottom: 10px;">MODIFY PART</div>
+
+    <form action="/part/modify/{{ part[0] }}" method="post">
+        <div>Part title: <input autofocus name="name" value="{{ part[1] }}"></div>
+        <div>Quantity: <input autofocus name="quantity" value="{{ part[2] }}"></div>
+
+        <input type="submit" value="Save">
+    </form>
+
+
+</body>
+
+</html>

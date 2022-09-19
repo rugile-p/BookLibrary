@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <style>
+            input, select, textarea, button {
+                font-family: inherit;
+                font-size: inherit;
+            }
+        </style>
+    </head>
+    <body style="font-family: 'Source Sans Pro', sans-serif; font-size: 20pt;">
+        <div style="margin-bottom: 10px;">ADD LENDING</div>
+
+        <form action="/lending/modify/{{ lending[0] }}" method="post">
+            <div>User: 
+                <select name="user">
+                    {% for user in users %}                        
+                        <option value="{{user[0]}}" {{ "selected" if (user[0]==lending[2]) else "" }}>{{user[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>Book: 
+                <select name="book">
+                    {% for book in books %}
+                        <option value="{{book[0]}}" {{ "selected" if (book[0]==lending[1]) else "" }}>{{book[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                Until: <input type="text" id="until" name="until" value="{{ lending[3] }}">
+            </div>
+
+            <div style="margin-top: 10px">
+                <input type="submit" value="Save" style="background: none; border: none; color: green; text-decoration: underline; cursor: pointer; margin: 0px; padding: 0px;"/>
+                <a style="color: orange" href="/lendings">Cancel</a>
+            </div>
+        </form>
+    </body>
+</html>

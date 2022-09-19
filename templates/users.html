@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>USERS ({{numberOfUsers}})</div>
+
+    <div>
+        <a style="color: green;" href="/user/add">Add a new user</a>
+        <table style="border: 1px solid;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Command</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>
+                    <a style="color:  blue;" href="/user/modify/{{ user[0] }}">Modify</a>
+                    <a style="color:  red;" href="/user/delete/{{ user[0] }}" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

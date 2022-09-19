@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>BOOKS ({{numberOfBooks}})</div>
+
+    <div>
+        <a style="color: green;" href="/book/add">Add a new book</a>
+        <table style="border: 1px solid;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Command</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>
+                    <a style="color:  blue;" href="/book/modify/{{ book[0] }}">Modify</a>
+                    <a style="color:  red;" href="/book/delete/{{ book[0] }}" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="margin-bottom: 10px;">MODIFY GAME</div>
+
+    <form action="/game/modify/{{ game[0] }}" method="post">
+        <div>Game title: <input autofocus name="name" value="{{ game[1] }}"></div>
+
+        <input type="submit" value="Save">
+    </form>
+
+    <table style="border: 1px solid;">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Command</th>
+        </tr>
+        {% for game_part in game_parts %}
+        <tr>
+            <td>{{ game_part[0] }}</td>
+            <td>{{ game_part[1] }}</td>
+            <td>{{ game_part[2] }}</td>
+            <td>
+                <a style="color:  blue;" href="/part/modify/{{ game_part[0] }}">Modify</a>
+                <a style="color:  red;" href="/part/delete/{{ game_part[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a style="color: green;" href="/part/add/{{ game[0] }}">Add a new part</a>
+
+
+
+</body>
+
+</html>
